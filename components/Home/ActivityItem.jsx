@@ -2,6 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useEffect } from "react";
 import Colors from "../../constants/Colors";
 import { useRouter } from "expo-router";
+import MarkFav from "../MarkFav";
 
 export default function ActivityItem({ activity }) {
   useEffect(() => {
@@ -32,6 +33,16 @@ export default function ActivityItem({ activity }) {
           top: 10,
         }}
       ></View>
+      <View
+        style={{
+          position: "absolute",
+          zIndex: 10,
+          right: 10,
+          top: 10,
+        }}
+      >
+        <MarkFav activity={activity} />
+      </View>
       <Image
         source={{ uri: activity?.imageUrl }}
         style={{

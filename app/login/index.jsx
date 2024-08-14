@@ -88,7 +88,7 @@ export default function LoginScreen() {
             style={{
               padding: 14,
               marginTop: 50,
-              backgroundColor: Colors.PRIMARY,
+              backgroundColor: Colors.SECONDARY,
               width: "90%",
               borderRadius: 14,
             }}

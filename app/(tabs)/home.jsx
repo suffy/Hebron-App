@@ -6,6 +6,8 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import Colors from "../../constants/Colors";
 import ActivityByCategory from "../../components/Home/ActivityByCategory";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Link } from "expo-router";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 export default function Home() {
   return (
@@ -21,36 +23,40 @@ export default function Home() {
 
       <ActivityByCategory />
 
-      <TouchableOpacity style={styles.donate}>
-        {/* <MaterialIcons name="pets" size={24} color={Colors.PRIMARY} /> */}
-        <Ionicons name="heart-sharp" size={24} color="red" />
-        <Text
-          style={{
-            fontFamily: "outfit-medium",
-            fontSize: 19,
-            color: Colors.WHITE,
-          }}
-        >
-          Donate
-        </Text>
-      </TouchableOpacity>
+      <Link href="/add-new" style={styles.addNewContainer}>
+        <View>
+          <FontAwesome5 name="plus-circle" size={24} color={Colors.PRIMARY} />
+        </View>
+        <View>
+          <Text
+            style={{
+              fontFamily: "outfit-medium",
+              fontSize: 19,
+              color: Colors.PRIMARY,
+            }}
+          >
+            Add New Activity
+          </Text>
+        </View>
+      </Link>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  donate: {
+  addNewContainer: {
     display: "flex",
     flexDirection: "row",
     gap: 10,
     alignItems: "center",
     padding: 20,
-    marginTop: 20,
-    backgroundColor: Colors.SECONDARY,
+    marginTop: 50,
+    backgroundColor: Colors.LIGHT_PRIMARY,
     borderWidth: 1,
-    borderColor: Colors.SECONDARY,
+    borderColor: Colors.PRIMARY,
     borderRadius: 15,
     borderStyle: "dashed",
     justifyContent: "center",
+    textAlign: "center",
   },
 });
