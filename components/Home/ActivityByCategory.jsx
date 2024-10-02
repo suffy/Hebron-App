@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import Category from "./Category";
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -17,7 +17,7 @@ export default function ActivityByCategory() {
   const GetActivityList = async (category) => {
     setLoader(true);
     setActivityList([]);
-    console.log("category", category);
+    // console.log("category", category);
     const q = query(
       collection(db, "Hebron_activity"),
       where("category", "==", category)
@@ -31,8 +31,9 @@ export default function ActivityByCategory() {
   };
 
   return (
-    <View>
+    <View style={{ marginTop: 5 }}>
       <Category category={(value) => GetActivityList(value)} />
+
       <FlatList
         data={activityList}
         horizontal={true}

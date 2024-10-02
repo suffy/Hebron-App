@@ -6,7 +6,16 @@ import Colors from "./../../constants/Colors";
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: Colors.SECONDARY }}>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: Colors.PRIMARY,
+        tabBarStyle: {
+          backgroundColor: Colors.WHITE,
+          height: 50,
+          elevation: 0,
+        },
+      }}
+    >
       <Tabs.Screen
         name="home"
         options={{
@@ -27,16 +36,7 @@ export default function TabLayout() {
           ),
         }}
       />
-      {/* <Tabs.Screen
-        name="inbox"
-        options={{
-          headerShown: false,
-          title: "Inbox",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="chatbubble" size={24} color={color} />
-          ),
-        }}
-      /> */}
+
       <Tabs.Screen
         name="profile"
         options={{

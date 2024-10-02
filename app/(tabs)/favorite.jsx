@@ -5,6 +5,7 @@ import { useUser } from "@clerk/clerk-expo";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../configs/FirebaseConfig";
 import ActivityItem from "../../components/Home/ActivityItem";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Favorite() {
   const { user } = useUser();
@@ -43,7 +44,7 @@ export default function Favorite() {
   };
 
   return (
-    <View style={{ padding: 20, marginTop: 20 }}>
+    <SafeAreaView style={{ padding: 20 }}>
       <Text style={{ fontFamily: "outfit-medium", fontSize: 30 }}>
         Favorite
       </Text>
@@ -54,11 +55,11 @@ export default function Favorite() {
         refreshing={loader}
         onRefresh={GetFavPetIds}
         renderItem={({ item, index }) => (
-          <View>
+          <View key={index} style={{ margin: 5, marginBottom: 20 }}>
             <ActivityItem activity={item} key={index} />
           </View>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 }

@@ -1,12 +1,13 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
 import { useUser } from "@clerk/clerk-expo";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Header() {
   const { user } = useUser();
 
   return (
-    <View
+    <SafeAreaView
       style={{
         display: "flex",
         flexDirection: "row",
@@ -26,6 +27,6 @@ export default function Header() {
         source={{ uri: user?.imageUrl }}
         style={{ width: 40, height: 40, borderRadius: 20 }}
       />
-    </View>
+    </SafeAreaView>
   );
 }

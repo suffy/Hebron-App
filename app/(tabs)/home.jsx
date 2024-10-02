@@ -1,4 +1,10 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import Header from "../../components/Home/Header";
 import Slider from "../../components/Home/Slider";
@@ -8,13 +14,17 @@ import ActivityByCategory from "../../components/Home/ActivityByCategory";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Link } from "expo-router";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import { LinearGradient } from "expo-linear-gradient";
+import { SafeAreaView } from "react-native-safe-area-context";
+import LastActivity from "../../components/Home/LastActivity";
 
 export default function Home() {
   return (
-    <View
+    <ScrollView
       style={{
         padding: 20,
-        marginTop: 20,
+        backgroundColor: Colors.WHITE,
+        height: "100%",
       }}
     >
       <Header />
@@ -23,23 +33,22 @@ export default function Home() {
 
       <ActivityByCategory />
 
-      <Link href="/add-new" style={styles.addNewContainer}>
-        <View>
-          <FontAwesome5 name="plus-circle" size={24} color={Colors.PRIMARY} />
-        </View>
-        <View>
-          <Text
-            style={{
-              fontFamily: "outfit-medium",
-              fontSize: 19,
-              color: Colors.PRIMARY,
-            }}
-          >
-            Add New Activity
-          </Text>
-        </View>
-      </Link>
-    </View>
+      <LastActivity />
+
+      {/* <Link href="/add-new" style={styles.addNewContainer}>
+        <FontAwesome5 name="plus-circle" size={24} color={Colors.PRIMARY} />
+        <View style={{ width: 10 }}></View>
+        <Text
+          style={{
+            fontFamily: "outfit-bold",
+            fontSize: 19,
+            color: Colors.PRIMARY,
+          }}
+        >
+          Add New Activity
+        </Text>
+      </Link> */}
+    </ScrollView>
   );
 }
 
@@ -50,8 +59,8 @@ const styles = StyleSheet.create({
     gap: 10,
     alignItems: "center",
     padding: 20,
-    marginTop: 50,
-    backgroundColor: Colors.LIGHT_PRIMARY,
+    marginTop: 20,
+    backgroundColor: Colors.LIGHT_GRAY,
     borderWidth: 1,
     borderColor: Colors.PRIMARY,
     borderRadius: 15,

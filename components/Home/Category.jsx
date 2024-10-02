@@ -30,9 +30,7 @@ export default function Category({ category }) {
 
   return (
     <View style={{ marginTop: 20 }}>
-      <Text style={{ fontFamily: "outfit-medium", fontSize: 20 }}>
-        Category
-      </Text>
+      <Text style={{ fontFamily: "outfit-bold", fontSize: 20 }}>Category</Text>
 
       <FlatList
         data={categoryList}
@@ -45,7 +43,7 @@ export default function Category({ category }) {
               setSelectedCategory(item.name);
               category(item.name);
             }}
-            style={{ flex: 1 }}
+            style={{ flex: 1, marginTop: 15 }}
           >
             <View
               style={[
@@ -71,16 +69,16 @@ export default function Category({ category }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.LIGHT_PRIMARY,
+    backgroundColor: Colors.WHITE,
     padding: 15,
     alignItems: "center",
     borderWidth: 1,
-    borderRadius: 15,
+    borderRadius: 99,
     borderColor: Colors.PRIMARY,
     margin: 5,
   },
   selectedCategoryContainer: {
-    backgroundColor: Colors.SECONDARY,
-    borderColor: Colors.SECONDARY,
+    backgroundColor: Colors.PRIMARY,
+    borderColor: Colors.PRIMARY,
   },
 });

@@ -19,20 +19,12 @@ export default function ActivityItem({ activity }) {
         })
       }
       style={{
-        padding: 10,
-        marginRight: 15,
+        padding: 5,
+        marginRight: 10,
         backgroundColor: Colors.WHITE,
         borderRadius: 10,
       }}
     >
-      <View
-        style={{
-          position: "absolute",
-          zIndex: 10,
-          right: 10,
-          top: 10,
-        }}
-      ></View>
       <View
         style={{
           position: "absolute",
@@ -56,6 +48,7 @@ export default function ActivityItem({ activity }) {
         style={{
           fontFamily: "outfit-medium",
           fontSize: 18,
+          marginTop: 10,
         }}
       >
         {activity?.name}

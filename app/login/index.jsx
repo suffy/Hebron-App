@@ -1,4 +1,11 @@
-import { View, Text, Image, Pressable, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  Pressable,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import React, { useCallback } from "react";
 import Colors from "./../../constants/Colors";
 import * as WebBrowser from "expo-web-browser";
@@ -31,6 +38,7 @@ export default function LoginScreen() {
       const { createdSessionId, signIn, signUp, setActive } =
         await startOAuthFlow({
           redirectUrl: Linking.createURL("/(tabs)/home", { scheme: "myapp" }),
+          reloadApp: true,
         });
 
       if (createdSessionId) {
@@ -49,19 +57,26 @@ export default function LoginScreen() {
     <ScrollView style={{ backgroundColor: Colors.WHITE, height: "100%" }}>
       <View style={{ display: "flex", flex: 1 }}>
         <Image
-          source={require("./../../assets/images/sukarende.jpg")}
+          source={require("./../../assets/images/login.jpg")}
           style={{ width: "100%", height: 500 }}
         />
-        <View style={{ padding: 20 }}>
+        <View
+          style={{
+            padding: 20,
+            backgroundColor: Colors.WHITE,
+            marginTop: -20,
+            borderTopLeftRadius: 30,
+            borderTopRightRadius: 30,
+          }}
+        >
           <Text
             style={{
               fontFamily: "outfit-bold",
-              fontSize: 25,
+              fontSize: 35,
               textAlign: "center",
             }}
           >
-            Mari Bersama Memuridkan Generasi Yang Akan Mengubah Sejarah Keluarga
-            dan Bangsa di Masa Depan
+            Yayasan Jala Hebron
           </Text>
           <Text
             style={{
@@ -69,10 +84,10 @@ export default function LoginScreen() {
               fontFamily: "outfit-regular",
               fontSize: 18,
               color: Colors.GRAY,
-              marginTop: 10,
+              marginTop: 30,
             }}
           >
-            Ribuan Anak Masih Membutuhkan Anda
+            Konseling, Kemanusiaan, Beasiswa, Pelayanan, Kesehatan, Others
           </Text>
         </View>
         <View
@@ -83,12 +98,12 @@ export default function LoginScreen() {
             alignItems: "center",
           }}
         >
-          <Pressable
+          <TouchableOpacity
             onPress={onPress}
             style={{
               padding: 14,
-              marginTop: 50,
-              backgroundColor: Colors.SECONDARY,
+              marginTop: 30,
+              backgroundColor: Colors.PRIMARY,
               width: "90%",
               borderRadius: 14,
             }}
@@ -98,11 +113,12 @@ export default function LoginScreen() {
                 fontFamily: "outfit-medium",
                 fontSize: 20,
                 textAlign: "center",
+                color: Colors.WHITE,
               }}
             >
               Get Started
             </Text>
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
